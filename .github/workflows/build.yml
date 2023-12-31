@@ -1,0 +1,8 @@
+name: "[BACKEND] Build"
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "`x.y.z-backend.NN` 형태로 버전을 입력해주세요. (ex. 0.1.0-backend.05)"
+        required: true
+        default: 0.0.1-backend.00
