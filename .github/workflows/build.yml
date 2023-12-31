@@ -34,3 +34,19 @@ jobs:
         status: ${{job.status}}
         fields: repo,workflow,job
         author_name: Github Action Slack
+  tagging:
+    needs: condition_check
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Create Tag
+      run: |
+        git tag ${{ env.TAG }}
+        git push origin ${{ env.TAG }}
+    - name: notice when job fails
+      if: failure()
+      uses: 8398a7/action-slack@v3.2.0
+      with:
+        status: ${{job.status}}
+        fields: repo,workflow,job
+        author_name: Github Action Slack
