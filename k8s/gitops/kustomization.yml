@@ -8,7 +8,4 @@ images:
 - name: backend-image
   newName: 457516223683.dkr.ecr.ap-northeast-2.amazonaws.com/backend
   newTag: 0.0.1-backend.11
-- name: humancat-backend-image
-  newName: 457516223683.dkr.ecr.ap-northeast-2.amazonaws.com/backend
-  newTag: 0.0.1-backend.09
 namespace: gitops
