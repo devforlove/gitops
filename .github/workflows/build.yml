@@ -83,7 +83,7 @@ jobs:
       - name: Update Kubernetes resources
         run: |
           cd k8s/gitops
-          kustomize edit set image humancat-backend-image=${{ env.BACKEND_ECR_REPOSITORY }}:${{ env.TAG }}
+          kustomize edit set image backend-image=${{ env.BACKEND_ECR_REPOSITORY }}:${{ env.TAG }}
       - name: Commit & Push Image
         uses: actions-js/push@master
         with:
