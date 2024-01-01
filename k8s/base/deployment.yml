@@ -14,4 +14,4 @@ spec:
     spec:
       containers:
         - name: backend
-          image: backend
+          image: backend-image
