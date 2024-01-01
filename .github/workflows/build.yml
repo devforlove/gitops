@@ -48,9 +48,7 @@ jobs:
           distribution: 'adopt'
       - name: Build Java Sample Code
         run: |
-          mkdir -p $BUILD_PATH
           ./gradlew build
-          cp -rf build/libs/* $BUILD_PATH/
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -63,7 +61,7 @@ jobs:
           BACKEND_ECR_REPOSITORY: ${{ env.BACKEND_ECR_REPOSITORY }}
           IMAGE_TAG: ${{ env.TAG }}
         run: |
-          docker build -t $BACKEND_ECR_REPOSITORY:$IMAGE_TAG $BUILD_PATH/
+          docker build -t $BACKEND_ECR_REPOSITORY:$IMAGE_TAG .
       - id: login-ecr
         name: Login to Amazon ECR
         uses: aws-actions/amazon-ecr-login@v1
